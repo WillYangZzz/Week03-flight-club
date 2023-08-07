@@ -15,7 +15,7 @@ In this challenge, we're going to build a CLI tool to read data from the databas
 1. List all my tickets given a `passengers.id`
 1. List all my tickets by `passengers.dob`
 1. Count all my tickets by `passengers.dob`
-1. How many luggage you have lost?
+1. How many luggage have you lost?
 1. What is the total weight of your luggage where `is_lost` equals `true`?
 1. List the airport `phone` and `email` where your lost luggage are found at, so that you can contact them
 1. Print the boarding pass
