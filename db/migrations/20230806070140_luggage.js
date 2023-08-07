@@ -3,7 +3,7 @@ export function up(knex) {
     table.increments('id').primary()
     table.integer('ticket_id').references('tickets.id')
     table.integer('weight')
-    table.boolean('unclaimed')
+    table.boolean('is_lost')
     table.integer('found_airtport_id').references('airports.id')
     table.boolean('is_suspicious')
   })

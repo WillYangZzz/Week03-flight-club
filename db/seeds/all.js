@@ -34,7 +34,7 @@ export async function seed(knex) {
         phone: faker.phone.number('+## ### ### ####'),
         email: `support@${faker.airline.airport().name.replace(/\s/g, '')}.com`,
       })
-    }),
+    })
   )
 
   // insert passengers
@@ -47,7 +47,7 @@ export async function seed(knex) {
         job_title: faker.person.jobTitle(),
         phone: faker.phone.number('+## ### ### ####'),
       })
-    }),
+    })
   )
 
   // insert 10 airplanes
@@ -58,7 +58,7 @@ export async function seed(knex) {
         model: faker.airline.airplane().name,
         capacity: faker.number.int({ min: 100, max: 300 }),
       })
-    }),
+    })
   )
 
   const airportIds = await knex('airports').pluck('id')
@@ -86,9 +86,9 @@ export async function seed(knex) {
             arrival_time: arrival_time,
             flight_number: faker.airline.flightNumber(),
           })
-        }),
+        })
       )
-    }),
+    })
   )
 
   const ticketIds = await knex('tickets').pluck('id')
@@ -98,7 +98,7 @@ export async function seed(knex) {
       await knex('luggage').insert({
         id: i + 1,
         weight: faker.number.int({ min: 7, max: 40 }),
-        unclaimed: faker.datatype.boolean(),
+        is_lost: faker.datatype.boolean(),
         ticket_id: faker.helpers.arrayElement(ticketIds),
         found_airtport_id: faker.helpers.arrayElement(airportIds),
         is_suspicious: faker.helpers.weightedArrayElement([
@@ -106,6 +106,6 @@ export async function seed(knex) {
           { weight: 1, value: true }, // 10% chance of true
         ]),
       })
-    }),
+    })
   )
 }
