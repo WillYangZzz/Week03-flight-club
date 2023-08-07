@@ -48,8 +48,10 @@
         <div class='uppercase font-serif'>10 JUL 11:00pm</div>
       </div>
 
-      <div id='barcode' class='row-span-3 flex justify-center'>
-        <img src='{{img}}' />
+      <div id='barcode' class='row-span-3 flex justify-center aspect-auto'>
+        <img
+          src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ticketNo}}'
+        />
       </div>
     </div>
     <div class='text-xs text-center font-mono'>
