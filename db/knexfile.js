@@ -15,4 +15,20 @@ export default {
       afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
     },
   },
+  testing: {
+    client: 'sqlite3',
+    connection: {
+      filename: ':memory:',
+    },
+    migrations: {
+      directory: Path.join(__dirname, 'migrations'),
+    },
+    seeds: {
+      directory: Path.join(__dirname, 'seeds'),
+    },
+    useNullAsDefault: true,
+    pool: {
+      afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
+    },
+  },
 }
