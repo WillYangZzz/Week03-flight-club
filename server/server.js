@@ -13,7 +13,7 @@ const __dirname = Path.dirname(__filename)
 server.engine('hbs', engine({ extname: 'hbs' }))
 server.set('view engine', 'hbs')
 server.set('views', Path.join(__dirname, 'views'))
-server.use(express.static(Path.join(__dirname, 'public')))
+server.use(express.static(Path.join(__dirname, '..', 'public')))
 
 async function getQrImage(ticketNo) {
   const response = await fetch(
