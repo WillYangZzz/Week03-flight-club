@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node .",
+    "start": "node index.js",
     "test": "vitest",
     "dev": "run-p dev:*",
     "dev:server": "vite",
@@ -23,6 +23,8 @@
   "author": "Dev Academy",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.1",
     "knex": "^2.4.2",
     "sqlite3": "^5.1.6",
     "vitest": "^0.34.1"
