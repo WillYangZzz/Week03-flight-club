@@ -100,7 +100,7 @@ export async function seed(knex) {
         weight: faker.number.int({ min: 7, max: 40 }),
         is_lost: faker.datatype.boolean(),
         ticket_id: faker.helpers.arrayElement(ticketIds),
-        found_airtport_id: faker.helpers.arrayElement(airportIds),
+        located_airport_id: faker.helpers.arrayElement(airportIds),
         is_suspicious: faker.helpers.weightedArrayElement([
           { weight: 10, value: false }, // 90% chance of false
           { weight: 1, value: true }, // 10% chance of true
