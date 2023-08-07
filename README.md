@@ -19,6 +19,10 @@ In this challenge, we're going to build a CLI tool to read data from the databas
 1. What is the total weight of your luggage where `is_lost` equals `true`?
 1. List the airport `phone` and `email` where your lost luggage are found at, so that you can contact them
 1. Print the boarding pass
+   - Navigate to `http://localhost:3000/1234` to view the ticket (boarding pass)
+   - Write a db function that queries all ticket information in one query
+   - Call the db function in `server.js`
+   - Go to `views/ticket` and replace the hardcoded values with data passed from `viewData`
 
 ### As an Airport staff
 
