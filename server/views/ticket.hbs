@@ -1,4 +1,6 @@
-<div class='w-11/12 rounded-2xl border-4 border-neutral-600 border-dashed p-4'>
+<div
+  class='w-8/12 print:w-11/12 rounded-2xl border-4 border-neutral-600 border-dashed p-4'
+>
   <div class='flex flex-col gap-4'>
     <div
       id='header'
@@ -48,14 +50,14 @@
         <div class='uppercase font-serif'>10 JUL 11:00pm</div>
       </div>
 
-      <div id='barcode' class='row-span-3 flex justify-center aspect-auto'>
+      <div id='barcode' class='flex justify-center aspect-square'>
         <img
-          src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ticketNo}}'
+          src='https://api.qrserver.com/v1/create-qr-code/?size=75x75&data={{ticketNo}}'
         />
       </div>
     </div>
     <div class='text-xs text-center font-mono'>
-      www.hacktheairlines.com 0800-hack-the-airlines
+      www.hacktheairlines.app 0800-hack-the-airlines
     </div>
   </div>
 </div>
