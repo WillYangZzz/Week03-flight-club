@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node .",
+    "test": "vitest",
     "knex": "knex --knexfile ./db/knexfile.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "eslint . --fix",
@@ -20,7 +21,8 @@
   "license": "ISC",
   "dependencies": {
     "knex": "^2.4.2",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.6",
+    "vitest": "^0.34.1"
   },
   "devDependencies": {
     "@devacademy/eslint-config": "^1.8.0",
