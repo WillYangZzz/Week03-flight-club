@@ -69,8 +69,9 @@ export async function seed(knex) {
   // with random passenger and airport
   await Promise.all(
     Array.from({ length: 10 }).map(async (_, i) => {
+      const ticketTotal = faker.number.int({ min: 1, max: 5 })
       await Promise.all(
-        Array.from({ length: 10 }).map(async (_, j) => {
+        Array.from({ length: ticketTotal }).map(async (_, j) => {
           const departureTime = faker.date.past()
           const arrival_time =
             departureTime.getTime() +
