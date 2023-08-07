@@ -7,8 +7,9 @@
   "scripts": {
     "start": "node .",
     "test": "vitest",
-    "dev": "vite",
-    "dev:css": "tailwindcss -i ./input.css -o ./public/output.css --watch",
+    "dev": "run-p dev:*",
+    "dev:server": "vite",
+    "dev:css": "tailwindcss -i ./styles/input.css -o ./public/output.css --watch",
     "knex": "knex --knexfile ./db/knexfile.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "eslint . --fix",
