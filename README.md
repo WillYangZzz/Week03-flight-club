@@ -8,14 +8,19 @@ npm run knex seed:run
 
 ## Exercise
 
+In this challenge, we're going to build a CLI tool to read data from the database using `join`s
+
 ### As a Passenger
 
+1. List all my tickets given a `passengers.id`
+1. List all my tickets by `passengers.dob`
+1. Count all my tickets by `passengers.dob`
 1. How many luggage you have lost?
-2. What is the total weight of you unclaimed luggage?
-3. List the airport phone number and email where your unclaimed luggage are found at, so that you can contact them
-4. Print the boarding pass
+1. What is the total weight of you unclaimed luggage?
+1. List the airport phone number and email where your unclaimed luggage are found at, so that you can contact them
+1. Print the boarding pass
 
 ### As an Airport staff
 
-4. For a given airport, list the phone numbers for all passengers who have lost their luggage so that the Airport staff can call them
-5. For a given airport, display the names and phone numbers for all passengers who own suspicious luggage
+1. For a given airport, list the phone numbers for all passengers who have lost their luggage so that the Airport staff can call them
+1. For a given airport, display the names and phone numbers for all passengers who own suspicious luggage
