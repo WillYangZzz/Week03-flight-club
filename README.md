@@ -6,7 +6,7 @@ npm run knex migrate:latest
 npm run knex seed:run
 ```
 
-## Exercise
+## User Stories
 
 In this challenge, we're going to build a CLI tool to read data from the database using `join`s
 
@@ -23,6 +23,7 @@ In this challenge, we're going to build a CLI tool to read data from the databas
    - Write a db function that queries all ticket information in one query
    - Call the db function in `server.js`
    - Go to `views/ticket` and replace the hardcoded values with data passed from `viewData`
+   - Add the missing columns to the `tickets` table and to the `seed` file
 
 ### As an Airport staff
 
