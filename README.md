@@ -1,5 +1,7 @@
 # Flight Club
 
+![boarding-pass](/reference-imgs/boarding-pass.png)
+
 **Hack the Airlines** is an airline company looking for developers to help them building an app for their customers and users. The main focus for this challenge is to write db functions and see the tests passing.
 
 ## Learning Objectives
