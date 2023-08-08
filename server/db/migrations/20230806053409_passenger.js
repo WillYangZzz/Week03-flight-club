@@ -3,7 +3,7 @@ export function up(knex) {
     table.increments('id').primary()
     table.string('dob').notNullable()
     table.string('fullname').notNullable()
-    table.string('job_title').notNullable()
+    table.string('job_title')
     table.string('phone').notNullable()
   })
 }

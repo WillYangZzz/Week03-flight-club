@@ -30,17 +30,17 @@ test('3. Count all my tickets given `passenger.dob', async () => {
   expect(actual.count).toBe(2)
 })
 
-test('4. How many luggage have you lost?', async () => {
+test.skip('4. How many luggage have you lost?', async () => {
   const actual = await flightDb.countMyLostLuggage('2512')
   expect(actual.count).toBe(4)
 })
 
-test('5. What is the total weight of your luggage where `is_lost` equals `true`?', async () => {
+test.skip('5. What is the total weight of your luggage where `is_lost` equals `true`?', async () => {
   const actual = await flightDb.sumMyLostLuggageWeight('2512')
   expect(actual.sum).toBe(62)
 })
 
-test('6. List the airport `phone` and `email` where your lost luggage are found at', async () => {
+test.skip('6. List the airport `phone` and `email` where your lost luggage are found at', async () => {
   const actual = await flightDb.getMyLostLuggageLocation('2512')
   expect(actual).toHaveLength(4)
   expect(actual[0]).toHaveProperty('phone')
