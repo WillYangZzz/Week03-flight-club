@@ -25,38 +25,9 @@ export async function seed(knex) {
     '1512',
   ]
 
-  // insert airports
-  const airports = Array.from({ length: 12 }).map((_, i) => ({
-    id: i + 1,
-    name: faker.airline.airport().name,
-    phone: faker.phone.number('+## ### ### ####'),
-    email: `support@${faker.airline.airport().name.replace(/\s/g, '')}.com`,
-  }))
-
-  await knex('airports').insert(airports)
-  const airportIds = await knex('airports').pluck('id')
-
-  // // insert passengers
-  const passengers = passengersDobs.map((user, i) => ({
-    id: i + 1,
-    dob: user,
-    fullname: faker.person.fullName(),
-    job_title: faker.person.jobTitle(),
-    phone: faker.phone.number('+## ### ### ####'),
-  }))
-
-  await knex('passengers').insert(passengers)
-  const passengerIds = await knex('passengers').pluck('id')
-  //
-  // insert 10 airplanes
-  const airplanes = Array.from({ length: 10 }).map((_, i) => ({
-    id: i + 1,
-    model: faker.airline.airplane().name,
-    capacity: faker.number.int({ min: 100, max: 300 }),
-  }))
-
-  await knex('airplanes').insert(airplanes)
-  const airplaneIds = await knex('airplanes').pluck('id')
+  const airportIds = await insertAirports(knex)
+  const passengerIds = await insertPassengers(knex, passengersDobs)
+  const airplaneIds = await insertAirplanes(knex)
 
   // insert 10 tickets for each airplane
   // with random passenger and airport
@@ -98,4 +69,40 @@ export async function seed(knex) {
   }))
 
   await knex('luggage').insert(luggage)
+}
+
+async function insertAirports(knex) {
+  const airports = Array.from({ length: 12 }).map((_, i) => ({
+    id: i + 1,
+    name: faker.airline.airport().name,
+    phone: faker.phone.number('+## ### ### ####'),
+    email: `support@${faker.airline.airport().name.replace(/\s/g, '')}.com`,
+  }))
+
+  await knex('airports').insert(airports)
+  return await knex('airports').pluck('id')
+}
+
+async function insertPassengers(knex, dobs) {
+  const passengers = dobs.map((user, i) => ({
+    id: i + 1,
+    dob: user,
+    fullname: faker.person.fullName(),
+    job_title: faker.person.jobTitle(),
+    phone: faker.phone.number('+## ### ### ####'),
+  }))
+
+  await knex('passengers').insert(passengers)
+  return await knex('passengers').pluck('id')
+}
+
+async function insertAirplanes(knex) {
+  const airplanes = Array.from({ length: 10 }).map((_, i) => ({
+    id: i + 1,
+    model: faker.airline.airplane().name,
+    capacity: faker.number.int({ min: 100, max: 300 }),
+  }))
+
+  await knex('airplanes').insert(airplanes)
+  return await knex('airplanes').pluck('id')
 }
