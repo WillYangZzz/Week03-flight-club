@@ -15,7 +15,7 @@ export default {
       afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
     },
   },
-  testing: {
+  test: {
     client: 'sqlite3',
     connection: {
       filename: ':memory:',
