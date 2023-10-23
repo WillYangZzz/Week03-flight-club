@@ -11,18 +11,18 @@ export async function seed(knex) {
 
   // the codes below represent the students birth dates
   const passengersDobs = [
-    '0610',
-    '2611',
-    '1303',
-    '2011',
-    '2710',
-    '1510',
-    '1211',
-    '2712',
-    '2512',
-    '0107',
-    '1310',
+    '1506',
+    '1707',
+    '2404',
+    '2806',
+    '3105',
+    '1212',
+    '0706',
+    '0208',
+    '2103',
+    '1203',
     '1512',
+    '2310',
   ]
 
   const airportIds = await insertAirports(knex)

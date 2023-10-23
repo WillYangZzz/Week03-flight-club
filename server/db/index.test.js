@@ -1,18 +1,17 @@
 import { expect, test, beforeAll, beforeEach } from 'vitest'
 
-import * as flightDb from './index.js'
 import { afterAll } from 'vitest'
 
+import * as flightDb from './index.js'
 import connection from './connection.js'
+import { seed } from './seedForTesting.js'
 
 beforeAll(async () => {
   await connection.migrate.latest()
 })
 
 beforeEach(async () => {
-  await connection.seed.run({
-    specific: 'seedForTesting.js',
-  })
+  await seed(connection)
 })
 
 afterAll(async () => {
@@ -38,6 +37,7 @@ test('3. Count all my tickets given `passenger.dob', async () => {
 
 test('4. How many luggage have you lost?', async () => {
   const actual = await flightDb.countMyLostLuggage('9999')
+  console.log(actual)
   expect(actual.count).toBe(1)
 })
 
