@@ -37,7 +37,6 @@ test('3. Count all my tickets given `passenger.dob', async () => {
 
 test('4. How many luggage have you lost?', async () => {
   const actual = await flightDb.countMyLostLuggage('9999')
-  console.log(actual)
   expect(actual.count).toBe(1)
 })
 
