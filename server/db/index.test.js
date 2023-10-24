@@ -30,7 +30,7 @@ test('2. List all my tickets by `dob`', async () => {
   expect(myTickets[0].fullname).toBe('test user')
 })
 
-test('3. Count all my tickets given `passenger.dob', async () => {
+test.only('3. Count all my tickets given `passenger.dob', async () => {
   const actual = await flightDb.countMyTicketsByDob('9999')
   expect(actual.count).toBe(1)
 })

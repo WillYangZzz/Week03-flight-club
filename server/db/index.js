@@ -10,7 +10,13 @@ export async function getMyTicketsByDob(dob) {
     .where('dob', dob)
 }
 
-export async function countMyTicketsByDob(dob) {}
+export async function countMyTicketsByDob(dob) {
+  const ticketArray = await getMyTicketsByDob(dob)
+  ticketArray.count = ticketArray.length
+  console.log(ticketArray)
+
+  return ticketArray
+}
 
 export async function countMyLostLuggage(dob) {}
 
