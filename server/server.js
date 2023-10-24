@@ -1,5 +1,6 @@
 import express from 'express'
 import { engine } from 'express-handlebars'
+import { getTicket } from './db/index.js'
 
 import * as Path from 'node:path/posix'
 import * as URL from 'node:url'
@@ -19,12 +20,12 @@ server.get('/:ticket', async (req, res) => {
   // TODO: call db function to get ticket data
 
   const ticketNo = req.params.ticket || '1234567890'
-
+  const ticketData = await getTicket(ticketNo)
   const viewData = {
-    name: 'Jenny Rosen',
+    name: ticketData.fullName,
     from: 'SYD',
     to: 'LAX',
-    flight: '34',
+    flight: ticketData.flightNumber,
     date: '05 Aug 2020',
     seat: '14B',
     class: 'Business',
@@ -34,5 +35,6 @@ server.get('/:ticket', async (req, res) => {
     arrival: '10 Aug 2020 17:00',
   }
 
+  console.log(ticketData)
   res.render('ticket', viewData)
 })

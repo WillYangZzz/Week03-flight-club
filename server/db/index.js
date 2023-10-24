@@ -48,3 +48,20 @@ export async function getMyLostLuggageLocation(dob) {
     .select('airports.phone', 'airports.email')
     .first()
 }
+export async function getTicket(ticketNumber) {
+  return await db('luggage')
+    .join('tickets', 'ticket_id', 'tickets.id')
+    .join('passengers', 'passenger_id', 'passengers.id')
+    .join('airports', 'located_airport_id', 'airports.id')
+    .where('tickets.id', ticketNumber)
+    .select(
+      'tickets.id as ticketId',
+      'tickets.flight_number as flightNumber',
+      'passengers.fullname as fullName'
+    )
+    .first()
+  // .join('passengers', 'passenger_id', 'passengers.id')
+  // .join('airports', 'located_airport_id', 'airports.id')
+}
+
+// getTicket(43)
