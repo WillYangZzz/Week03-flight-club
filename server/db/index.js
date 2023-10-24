@@ -52,6 +52,24 @@ export async function getTicket(ticketId) {
   return db('tickets')
     .where('tickets.id', ticketId)
     .join('passengers', 'tickets.passenger_id', 'passengers.id')
-    .join('airports', 'airports.id', 'tickets.departure_airport_id')
+    .join(
+      'airports as departureAirports',
+      'departureAirports.id',
+      'tickets.departure_airport_id'
+    )
+    .join(
+      'airports as arrivalAirports',
+      'arrivalAirports.id',
+      'tickets.arrival_airport_id'
+    )
+    .select(
+      'departureAirports.name as departureName',
+      'arrivalAirports.name as arrivalName',
+      'fullName',
+      'flight_number',
+      'departure_time',
+      'arrival_time',
+      'tickets.id'
+    )
     .first()
 }
