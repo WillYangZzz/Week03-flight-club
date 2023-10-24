@@ -48,3 +48,16 @@ export async function getMyLostLuggageLocation(dob) {
     .select('airports.email', 'airports.phone')
     .first()
 }
+
+export async function getTicket(id) {
+  return db('tickets')
+    .join('passengers', 'tickets.passenger_id', 'passengers.id')
+    .join('airplanes', 'tickets.airplane_id', 'airplanes.id')
+    .join('airports as departure', 'tickets.departure_airport_id', 'departure.id')
+    .join('airports as arrival', 'tickets.arrival_airport_id', 'arrival.id')
+    .where('tickets.id', id)
+    .select('passengers.fullname as name', 'airplanes.model as carrier', 'departure.name as from',
+     'arrival.name as to', 'tickets.flight_number as flight', 'tickets.id as ticketNo',
+      'tickets.departure_time', 'tickets.arrival_time')
+    .first()
+}
