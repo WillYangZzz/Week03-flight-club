@@ -41,13 +41,10 @@ test('4. How many luggage have you lost?', async () => {
   expect(actual.count).toBe(1)
 })
 
-test.todo(
-  '5. What is the total weight of your luggage where `is_lost` equals `true`?',
-  async () => {
-    const actual = await flightDb.sumMyLostLuggageWeight('9999')
-    expect(actual.sum).toBe(20)
-  }
-)
+test('5. What is the total weight of your luggage where `is_lost` equals `true`?', async () => {
+  const actual = await flightDb.sumMyLostLuggageWeight('9999')
+  expect(actual.sum).toBe(20)
+})
 
 test.todo(
   '6. List the airport `phone` and `email` where your lost luggage are found at',
