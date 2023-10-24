@@ -47,3 +47,11 @@ export async function getMyLostLuggageLocation(dob) {
     .where('luggage.is_lost', true)
     .first()
 }
+
+export async function getTicket(ticketId) {
+  return db('tickets')
+    .where('tickets.id', ticketId)
+    .join('passengers', 'tickets.passenger_id', 'passengers.id')
+    .join('airports', 'airports.id', 'tickets.departure_airport_id')
+    .first()
+}

@@ -4,6 +4,8 @@ import { engine } from 'express-handlebars'
 import * as Path from 'node:path/posix'
 import * as URL from 'node:url'
 
+import { getTicket } from './db/index.js'
+
 const server = express()
 export default server
 
@@ -20,19 +22,22 @@ server.get('/:ticket', async (req, res) => {
 
   const ticketNo = req.params.ticket || '1234567890'
 
-  const viewData = {
-    name: 'Jenny Rosen',
-    from: 'SYD',
-    to: 'LAX',
-    flight: '34',
-    date: '05 Aug 2020',
-    seat: '14B',
-    class: 'Business',
-    ticketNo,
-    gate: '22',
-    departure: '09 Aug 2020 10:00',
-    arrival: '10 Aug 2020 17:00',
-  }
+  const viewData = await getTicket(ticketNo)
+  console.log(viewData)
+
+  // const viewData = {
+  //   name: 'Jenny Rosen',
+  //   from: 'SYD',
+  //   to: 'LAX',
+  //   flight: '34',
+  //   date: '05 Aug 2020',
+  //   seat: '14B',
+  //   class: 'Business',
+  //   ticketNo,
+  //   gate: '22',
+  //   departure: '09 Aug 2020 10:00',
+  //   arrival: '10 Aug 2020 17:00',
+  // }
 
   res.render('ticket', viewData)
 })
