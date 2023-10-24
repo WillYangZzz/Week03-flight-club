@@ -1,6 +1,8 @@
 import db from './connection.js'
 
-export async function getMyTickets(passengerId) {}
+export async function getMyTickets(passengerId) {
+  return db('tickets').where('passenger_id', passengerId)
+}
 
 export async function getMyTicketsByDob(dob) {}
 
