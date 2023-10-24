@@ -11,11 +11,11 @@ export async function getMyTicketsByDob(dob) {
 }
 
 export async function countMyTicketsByDob(dob) {
-  const ticketArray = await getMyTicketsByDob(dob)
-  ticketArray.count = ticketArray.length
-  console.log(ticketArray)
-
-  return ticketArray
+  const count = await db('tickets')
+    .join('passengers', 'passenger_id', 'passengers.id')
+    .count('dob as count')
+    .first()
+  return count
 }
 
 export async function countMyLostLuggage(dob) {}
