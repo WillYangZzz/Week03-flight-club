@@ -23,19 +23,5 @@ server.get('/:ticket', async (req, res) => {
   const ticketNo = req.params.ticket || '1234567890'
   const ticketData = await getTicket(ticketNo)
 
-  // const viewData = {
-  //   name: 'Jenny Rosen',
-  //   from: 'SYD',
-  //   to: 'LAX',
-  //   flight: '34',
-  //   date: '05 Aug 2020',
-  //   seat: '14B',
-  //   class: 'Business',
-  //   ticketNo,
-  //   gate: '22',
-  //   departure: '09 Aug 2020 10:00',
-  //   arrival: '10 Aug 2020 17:00',
-  // }
-
   res.render('ticket', ticketData)
 })
