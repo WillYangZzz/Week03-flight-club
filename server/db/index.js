@@ -4,7 +4,11 @@ export async function getMyTickets(passengerId) {
   return db('tickets').where({ passenger_id: passengerId })
 }
 
-export async function getMyTicketsByDob(dob) {}
+export async function getMyTicketsByDob(dob) {
+  return db('tickets')
+    .join('passengers', 'passenger_id', 'passenger.id')
+    .where({ dob: dob })
+}
 
 export async function countMyTicketsByDob(dob) {}
 
